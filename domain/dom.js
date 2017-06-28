@@ -1,22 +1,9 @@
 // @flow
 
-export type AttributeList = string[];
-
-([
-  'class',
-  'my-awesome-class another-class',
-  'id',
-  'element-id',
-  'data-no-value',
-  '',
-  'data-hello',
-  'hello-value',
-]: AttributeList);
-
 export type Node = {
-  nodeId: number,
+  nodeId: NodeId,
   parentId?: number,
-  backendNodeId: number,
+  backendNodeId: NodeId,
   nodeType: number,
   nodeName: string,
   localName: string,
@@ -52,3 +39,18 @@ export type Node = {
   ],
   attributes: ['class', 'grid-xs col'],
 }: Node);
+
+export type NodeId = number | string;
+
+export type AttributeList = string[];
+
+([
+  'class',
+  'my-awesome-class another-class',
+  'id',
+  'element-id',
+  'data-no-value',
+  '',
+  'data-hello',
+  'hello-value',
+]: AttributeList);
