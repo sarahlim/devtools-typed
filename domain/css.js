@@ -4,7 +4,7 @@
  * Pseudo-element.
  * @type {String}
  */
-declare type PseudoType =
+export type PseudoType =
   | 'first-line'
   | 'first-letter'
   | 'before'
@@ -25,7 +25,7 @@ declare type PseudoType =
  * CSS rule collection for a single pseudo style.
  * @type {Object}
  */
-declare type PseudoElementMatches = {
+export type PseudoElementMatches = {
   pseudoType: PseudoType,
   matches: RuleMatch[],
 };
@@ -34,14 +34,14 @@ declare type PseudoElementMatches = {
  * Pseudoclass.
  * @type {String}
  */
-declare type PseudoClass = 'active' | 'focus' | 'hover' | 'visited';
+export type PseudoClass = 'active' | 'focus' | 'hover' | 'visited';
 
 /**
  * CSS style sheet identifier.
  * Absent for UA styles and user-specified stylesheet rules.
  * @type {String}
  */
-declare type StyleSheetId = string;
+export type StyleSheetId = string;
 
 ('83510.1': StyleSheetId);
 
@@ -53,7 +53,7 @@ declare type StyleSheetId = string;
  * 'regular': for regular stylesheets
  * @type {String}
  */
-declare type StyleSheetOrigin =
+export type StyleSheetOrigin =
   | 'injected'
   | 'user-agent'
   | 'inspector'
@@ -63,7 +63,7 @@ declare type StyleSheetOrigin =
  * Text range within a resource. Zero-indexed, [) range.
  * @type {Object}
  */
-declare type SourceRange = {
+export type SourceRange = {
   startLine: number,
   startColumn: number,
   endLine: number,
@@ -84,7 +84,7 @@ declare type SourceRange = {
  *
  * @type {Object}
  */
-declare type Value = {
+export type Value = {
   text: string,
   range?: SourceRange,
 };
@@ -106,7 +106,7 @@ declare type Value = {
  *
  * @type {Object}
  */
-declare type SelectorList = {
+export type SelectorList = {
   selectors: Value[],
   text: string,
 };
@@ -133,7 +133,7 @@ declare type SelectorList = {
  *
  * @type {Object}
  */
-declare type CSSProperty = {
+export type CSSProperty = {
   name: string,
   value: string,
   important?: boolean,
@@ -168,7 +168,7 @@ declare type CSSProperty = {
  *
  * @type {Object}
  */
-declare type CSSStyle = {
+export type CSSStyle = {
   styleSheetId?: StyleSheetId,
   cssProperties: CSSProperty[],
   shorthandEntries: ShorthandEntry[],
@@ -226,7 +226,7 @@ declare type CSSStyle = {
  *
  * @type {Object}
  */
-declare type CSSRule = {
+export type CSSRule = {
   styleSheetId: StyleSheetId,
   selectorList: SelectorList,
   origin: StyleSheetOrigin,
@@ -306,7 +306,7 @@ declare type CSSRule = {
  *
  * @type {Object}
  */
-declare type RuleMatch = {
+export type RuleMatch = {
   rule: CSSRule,
   matchingSelectors: number[],
 };
@@ -377,13 +377,13 @@ declare type RuleMatch = {
  * A descriptor of operation to mutate style declaration text.
  * @type {Object}
  */
-declare type StyleDeclarationEdit = {
+export type StyleDeclarationEdit = {
   styleSheetId: StyleSheetId,
   range: SourceRange,
   text: string,
 };
 
-declare type ShorthandEntry = {
+export type ShorthandEntry = {
   name: string,
   value: string,
   important?: boolean,
@@ -392,7 +392,7 @@ declare type ShorthandEntry = {
 /**
  * CSS media rule descriptor.
  */
-declare type CSSMedia = {
+export type CSSMedia = {
   text: string,
   source: 'mediaRule' | 'importRule' | 'linkedSheet' | 'inlineSheet',
   sourceURL?: string,
@@ -404,7 +404,7 @@ declare type CSSMedia = {
 /**
  * Media query descriptor.
  */
-declare type MediaQuery = {
+export type MediaQuery = {
   expressions: MediaQueryExpression[],
   active: boolean,
 };
@@ -412,7 +412,7 @@ declare type MediaQuery = {
 /**
  * Media query expression descriptor.
  */
-declare type MediaQueryExpression = {
+export type MediaQueryExpression = {
   value: number,
   unit: string,
   feature: string,
@@ -423,7 +423,7 @@ declare type MediaQueryExpression = {
 /**
  * Result of calling CSS.getMatchedStylesForNode.
  */
-declare type MatchedStyles = {
+export type MatchedStyles = {
   inlineStyle: CSSStyle,
   attributesStyle: CSSStyle,
   matchedCSSRules: RuleMatch[],
@@ -435,7 +435,7 @@ declare type MatchedStyles = {
 /**
  * Inherited CSS rule collection from ancestor node.
  */
-declare type InheritedStyleEntry = {
+export type InheritedStyleEntry = {
   inlineStyle?: CSSStyle,
   matchedCSSRules: RuleMatch[],
 };
@@ -443,12 +443,12 @@ declare type InheritedStyleEntry = {
 /**
  * CSS keyframe rule representation.
  */
-declare type CSSKeyframesRule = {
+export type CSSKeyframesRule = {
   animationName: Value,
   keyframes: CSSKeyframeRule[],
 };
 
-declare type CSSKeyframeRule = {
+export type CSSKeyframeRule = {
   styleSheetId?: StyleSheetId,
   origin: StyleSheetOrigin,
   keyText: Value,

@@ -2,7 +2,6 @@
   "name": "devtools-typed",
   "version": "0.1.0",
   "description": "Flow library definitions for Chrome Remote Debugging Protocol",
-  "main": "index.js",
   "repository": "https://github.com/sarahlim/devtools-typed",
   "author": "sarah@sarahlim.com",
   "license": "MIT",
