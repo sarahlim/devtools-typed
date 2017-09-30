@@ -1,9 +1,5 @@
 // @flow
 
-/**
- * Pseudo-element.
- * @type {String}
- */
 export type PseudoType =
   | 'first-line'
   | 'first-letter'
@@ -21,29 +17,18 @@ export type PseudoType =
   | 'resizer'
   | 'input-list-button';
 
-/**
- * CSS rule collection for a single pseudo style.
- * @type {Object}
- */
 export type PseudoElementMatches = {
   pseudoType: PseudoType,
   matches: RuleMatch[],
 };
 
-/**
- * Pseudoclass.
- * @type {String}
- */
 export type PseudoClass = 'active' | 'focus' | 'hover' | 'visited';
 
 /**
  * CSS style sheet identifier.
  * Absent for UA styles and user-specified stylesheet rules.
- * @type {String}
  */
 export type StyleSheetId = string;
-
-('83510.1': StyleSheetId);
 
 /**
  * Stylesheet type.
@@ -51,7 +36,6 @@ export type StyleSheetId = string;
  * 'user-agent': for user-agent stylesheets
  * 'inspector': for stylesheets created by the inspector
  * 'regular': for regular stylesheets
- * @type {String}
  */
 export type StyleSheetOrigin =
   | 'injected'
@@ -61,7 +45,6 @@ export type StyleSheetOrigin =
 
 /**
  * Text range within a resource. Zero-indexed, [) range.
- * @type {Object}
  */
 export type SourceRange = {
   startLine: number,
@@ -70,68 +53,30 @@ export type SourceRange = {
   endColumn: number,
 };
 
-({
-  startLine: 5,
-  startColumn: 0,
-  endLine: 5,
-  endColumn: 13,
-}: SourceRange);
-
 /**
  * Data for a simple selector (i.e. those delimited by commas in a selector list).
  *
  * .foo
- *
- * @type {Object}
  */
 export type Value = {
   text: string,
   range?: SourceRange,
 };
 
-({
-  text: '.test-element',
-  range: {
-    startLine: 5,
-    startColumn: 0,
-    endLine: 5,
-    endColumn: 13,
-  },
-}: Value);
-
 /**
  * Selector list data.
  *
  * .foo, .bar
- *
- * @type {Object}
  */
 export type SelectorList = {
   selectors: Value[],
   text: string,
 };
 
-({
-  selectors: [
-    {
-      text: '.test-element',
-      range: {
-        startLine: 5,
-        startColumn: 0,
-        endLine: 5,
-        endColumn: 13,
-      },
-    },
-  ],
-  text: '.test-element',
-}: SelectorList);
-
 /**
  * CSS property declaration data.
  *
  * position: absolute !important;
- *
- * @type {Object}
  */
 export type CSSProperty = {
   name: string,
@@ -144,20 +89,6 @@ export type CSSProperty = {
   range?: SourceRange,
 };
 
-({
-  name: 'position',
-  value: 'absolute',
-  implicit: false,
-  text: 'position:absolute;',
-  disabled: false,
-  range: {
-    startLine: 6,
-    startColumn: 2,
-    endLine: 6,
-    endColumn: 21,
-  },
-}: CSSProperty);
-
 /**
  * CSS style representation.
  *
@@ -165,8 +96,6 @@ export type CSSProperty = {
  *   position: absolute;
  *   left: 50px;
  * }
- *
- * @type {Object}
  */
 export type CSSStyle = {
   styleSheetId?: StyleSheetId,
@@ -176,46 +105,6 @@ export type CSSStyle = {
   range?: SourceRange,
 };
 
-({
-  styleSheetId: '83410.1',
-  cssProperties: [
-    {
-      name: 'position',
-      value: 'absolute',
-      implicit: false,
-      text: 'position:absolute;',
-      disabled: false,
-      range: {
-        startLine: 6,
-        startColumn: 2,
-        endLine: 6,
-        endColumn: 21,
-      },
-    },
-    {
-      name: 'left',
-      value: '50px',
-      implicit: false,
-      text: 'left:50px;',
-      disabled: false,
-      range: {
-        startLine: 7,
-        startColumn: 2,
-        endLine: 7,
-        endColumn: 13,
-      },
-    },
-  ],
-  shorthandEntries: [],
-  cssText: 'position: absolute; left: 50px;',
-  range: {
-    startLine: 5,
-    startColumn: 15,
-    endLine: 12,
-    endColumn: 0,
-  },
-}: CSSStyle);
-
 /**
  * CSS rule representation.
  *
@@ -223,8 +112,6 @@ export type CSSStyle = {
  *   position: absolute;
  *   left: 50px;
  * }
- *
- * @type {Object}
  */
 export type CSSRule = {
   styleSheetId: StyleSheetId,
@@ -233,65 +120,6 @@ export type CSSRule = {
   style: CSSStyle,
   media?: CSSMedia[],
 };
-
-({
-  styleSheetId: '83410.1',
-  selectorList: {
-    selectors: [
-      {
-        text: '.test-element',
-        range: {
-          startLine: 5,
-          startColumn: 0,
-          endLine: 5,
-          endColumn: 13,
-        },
-      },
-    ],
-    text: '.test-element',
-  },
-  origin: 'regular',
-  style: {
-    styleSheetId: '83410.1',
-    cssProperties: [
-      {
-        name: 'position',
-        value: 'absolute',
-        implicit: false,
-        text: 'position:absolute;',
-        disabled: false,
-        range: {
-          startLine: 6,
-          startColumn: 2,
-          endLine: 6,
-          endColumn: 21,
-        },
-      },
-      {
-        name: 'left',
-        value: '50px',
-        implicit: false,
-        text: 'left:50px;',
-        disabled: false,
-        range: {
-          startLine: 7,
-          startColumn: 2,
-          endLine: 7,
-          endColumn: 13,
-        },
-      },
-    ],
-    shorthandEntries: [],
-    cssText: 'position: absolute; left: 50px;',
-    range: {
-      startLine: 5,
-      startColumn: 15,
-      endLine: 12,
-      endColumn: 0,
-    },
-  },
-  media: [],
-}: CSSRule);
 
 /**
  * Match data for a CSS rule.
@@ -303,80 +131,12 @@ export type CSSRule = {
  *
  * Differs from CSSRule in that it includes the selector
  * indices in the rule's selectorList.
- *
- * @type {Object}
  */
 export type RuleMatch = {
   rule: CSSRule,
   matchingSelectors: number[],
 };
 
-({
-  rule: {
-    styleSheetId: '83410.1',
-    selectorList: {
-      selectors: [
-        {
-          text: '.test-element',
-          range: {
-            startLine: 5,
-            startColumn: 0,
-            endLine: 5,
-            endColumn: 13,
-          },
-        },
-      ],
-      text: '.test-element',
-    },
-    origin: 'regular',
-    style: {
-      styleSheetId: '83410.1',
-      cssProperties: [
-        {
-          name: 'position',
-          value: 'absolute',
-          implicit: false,
-          text: 'position:absolute;',
-          disabled: false,
-          range: {
-            startLine: 6,
-            startColumn: 2,
-            endLine: 6,
-            endColumn: 21,
-          },
-        },
-        {
-          name: 'left',
-          value: '50px',
-          implicit: false,
-          text: 'left:50px;',
-          disabled: false,
-          range: {
-            startLine: 7,
-            startColumn: 2,
-            endLine: 7,
-            endColumn: 13,
-          },
-        },
-      ],
-      shorthandEntries: [],
-      cssText: 'position: absolute; left: 50px;',
-      range: {
-        startLine: 5,
-        startColumn: 15,
-        endLine: 12,
-        endColumn: 0,
-      },
-    },
-    media: [],
-  },
-  matchingSelectors: [0],
-}: RuleMatch);
-
-/**
- * A descriptor of operation to mutate style declaration text.
- * @type {Object}
- */
 export type StyleDeclarationEdit = {
   styleSheetId: StyleSheetId,
   range: SourceRange,
@@ -389,9 +149,6 @@ export type ShorthandEntry = {
   important?: boolean,
 };
 
-/**
- * CSS media rule descriptor.
- */
 export type CSSMedia = {
   text: string,
   source: 'mediaRule' | 'importRule' | 'linkedSheet' | 'inlineSheet',
@@ -401,17 +158,11 @@ export type CSSMedia = {
   mediaList?: MediaQuery[],
 };
 
-/**
- * Media query descriptor.
- */
 export type MediaQuery = {
   expressions: MediaQueryExpression[],
   active: boolean,
 };
 
-/**
- * Media query expression descriptor.
- */
 export type MediaQueryExpression = {
   value: number,
   unit: string,
@@ -440,9 +191,6 @@ export type InheritedStyleEntry = {
   matchedCSSRules: RuleMatch[],
 };
 
-/**
- * CSS keyframe rule representation.
- */
 export type CSSKeyframesRule = {
   animationName: Value,
   keyframes: CSSKeyframeRule[],
