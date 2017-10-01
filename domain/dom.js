@@ -22,3 +22,5 @@ export type Node = {
 export type NodeId = number | string;
 
 export type AttributeList = string[];
+
+export type BackendNodeId = number;
