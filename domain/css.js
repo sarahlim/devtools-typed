@@ -1,6 +1,6 @@
 // @flow
 
-export type PseudoType =
+export type CRDP$PseudoType =
   | 'first-line'
   | 'first-letter'
   | 'before'
@@ -17,18 +17,18 @@ export type PseudoType =
   | 'resizer'
   | 'input-list-button';
 
-export type PseudoElementMatches = {
+export type CRDP$PseudoElementMatches = {
   pseudoType: PseudoType,
   matches: RuleMatch[],
 };
 
-export type PseudoClass = 'active' | 'focus' | 'hover' | 'visited';
+export type CRDP$PseudoClass = 'active' | 'focus' | 'hover' | 'visited';
 
 /**
  * CSS style sheet identifier.
  * Absent for UA styles and user-specified stylesheet rules.
  */
-export type StyleSheetId = string;
+export type CRDP$StyleSheetId = string;
 
 /**
  * Stylesheet type.
@@ -37,7 +37,7 @@ export type StyleSheetId = string;
  * 'inspector': for stylesheets created by the inspector
  * 'regular': for regular stylesheets
  */
-export type StyleSheetOrigin =
+export type CRDP$StyleSheetOrigin =
   | 'injected'
   | 'user-agent'
   | 'inspector'
@@ -46,7 +46,7 @@ export type StyleSheetOrigin =
 /**
  * Text range within a resource. Zero-indexed, [) range.
  */
-export type SourceRange = {
+export type CRDP$SourceRange = {
   startLine: number,
   startColumn: number,
   endLine: number,
@@ -58,7 +58,7 @@ export type SourceRange = {
  *
  * .foo
  */
-export type Value = {
+export type CRDP$Value = {
   text: string,
   range?: SourceRange,
 };
@@ -68,7 +68,7 @@ export type Value = {
  *
  * .foo, .bar
  */
-export type SelectorList = {
+export type CRDP$SelectorList = {
   selectors: Value[],
   text: string,
 };
@@ -78,7 +78,7 @@ export type SelectorList = {
  *
  * position: absolute !important;
  */
-export type CSSProperty = {
+export type CRDP$CSSProperty = {
   name: string,
   value: string,
   important?: boolean,
@@ -97,7 +97,7 @@ export type CSSProperty = {
  *   left: 50px;
  * }
  */
-export type CSSStyle = {
+export type CRDP$CSSStyle = {
   styleSheetId?: StyleSheetId,
   cssProperties: CSSProperty[],
   shorthandEntries: ShorthandEntry[],
@@ -113,7 +113,7 @@ export type CSSStyle = {
  *   left: 50px;
  * }
  */
-export type CSSRule = {
+export type CRDP$CSSRule = {
   styleSheetId: StyleSheetId,
   selectorList: SelectorList,
   origin: StyleSheetOrigin,
@@ -132,24 +132,24 @@ export type CSSRule = {
  * Differs from CSSRule in that it includes the selector
  * indices in the rule's selectorList.
  */
-export type RuleMatch = {
+export type CRDP$RuleMatch = {
   rule: CSSRule,
   matchingSelectors: number[],
 };
 
-export type StyleDeclarationEdit = {
+export type CRDP$StyleDeclarationEdit = {
   styleSheetId: StyleSheetId,
   range: SourceRange,
   text: string,
 };
 
-export type ShorthandEntry = {
+export type CRDP$ShorthandEntry = {
   name: string,
   value: string,
   important?: boolean,
 };
 
-export type CSSMedia = {
+export type CRDP$CSSMedia = {
   text: string,
   source: 'mediaRule' | 'importRule' | 'linkedSheet' | 'inlineSheet',
   sourceURL?: string,
@@ -158,12 +158,12 @@ export type CSSMedia = {
   mediaList?: MediaQuery[],
 };
 
-export type MediaQuery = {
+export type CRDP$MediaQuery = {
   expressions: MediaQueryExpression[],
   active: boolean,
 };
 
-export type MediaQueryExpression = {
+export type CRDP$MediaQueryExpression = {
   value: number,
   unit: string,
   feature: string,
@@ -174,7 +174,7 @@ export type MediaQueryExpression = {
 /**
  * Result of calling CSS.getMatchedStylesForNode.
  */
-export type MatchedStyles = {
+export type CRDP$MatchedStyles = {
   inlineStyle: CSSStyle,
   attributesStyle: CSSStyle,
   matchedCSSRules: RuleMatch[],
@@ -186,17 +186,17 @@ export type MatchedStyles = {
 /**
  * Inherited CSS rule collection from ancestor node.
  */
-export type InheritedStyleEntry = {
+export type CRDP$InheritedStyleEntry = {
   inlineStyle?: CSSStyle,
   matchedCSSRules: RuleMatch[],
 };
 
-export type CSSKeyframesRule = {
+export type CRDP$CSSKeyframesRule = {
   animationName: Value,
   keyframes: CSSKeyframeRule[],
 };
 
-export type CSSKeyframeRule = {
+export type CRDP$CSSKeyframeRule = {
   styleSheetId?: StyleSheetId,
   origin: StyleSheetOrigin,
   keyText: Value,

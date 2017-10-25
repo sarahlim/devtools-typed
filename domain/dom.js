@@ -1,6 +1,6 @@
 // @flow
 
-export type Node = {
+export type CRDP$Node = {
   nodeId: NodeId,
   parentId?: number,
   backendNodeId: NodeId,
@@ -19,8 +19,8 @@ export type Node = {
   offsetParent?: Node,
 };
 
-export type NodeId = number | string;
+export type CRDP$NodeId = number | string;
 
-export type AttributeList = string[];
+export type CRDP$AttributeList = string[];
 
-export type BackendNodeId = number;
+export type CRDP$BackendNodeId = number;

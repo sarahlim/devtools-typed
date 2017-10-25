@@ -1,6 +1,6 @@
 // @flow
 
-export type HighlightConfig = {
+export type CRDP$HighlightConfig = {
   showInfo?: boolean,
   showRulers?: boolean,
   showExtensionlines?: boolean,
@@ -20,7 +20,7 @@ export type HighlightConfig = {
  * Fields r, g, b are [0-255]
  * Field a is [0-1]
  */
-export type RGBA = {
+export type CRDP$RGBA = {
   r: number,
   g: number,
   b: number,
