@@ -18,8 +18,8 @@ export type CRDP$PseudoType =
   | 'input-list-button';
 
 export type CRDP$PseudoElementMatches = {
-  pseudoType: PseudoType,
-  matches: RuleMatch[],
+  pseudoType: CRDP$PseudoType,
+  matches: CRDP$RuleMatch[],
 };
 
 export type CRDP$PseudoClass = 'active' | 'focus' | 'hover' | 'visited';
@@ -60,7 +60,7 @@ export type CRDP$SourceRange = {
  */
 export type CRDP$Value = {
   text: string,
-  range?: SourceRange,
+  range?: CRDP$SourceRange,
 };
 
 /**
@@ -69,7 +69,7 @@ export type CRDP$Value = {
  * .foo, .bar
  */
 export type CRDP$SelectorList = {
-  selectors: Value[],
+  selectors: CRDP$Value[],
   text: string,
 };
 
@@ -86,7 +86,7 @@ export type CRDP$CSSProperty = {
   text?: string,
   parsedOk?: boolean,
   disabled?: boolean,
-  range?: SourceRange,
+  range?: CRDP$SourceRange,
 };
 
 /**
@@ -98,11 +98,11 @@ export type CRDP$CSSProperty = {
  * }
  */
 export type CRDP$CSSStyle = {
-  styleSheetId?: StyleSheetId,
-  cssProperties: CSSProperty[],
-  shorthandEntries: ShorthandEntry[],
+  styleSheetId?: CRDP$StyleSheetId,
+  cssProperties: CRDP$CSSProperty[],
+  shorthandEntries: CRDP$ShorthandEntry[],
   cssText?: string,
-  range?: SourceRange,
+  range?: CRDP$SourceRange,
 };
 
 /**
@@ -114,11 +114,11 @@ export type CRDP$CSSStyle = {
  * }
  */
 export type CRDP$CSSRule = {
-  styleSheetId: StyleSheetId,
-  selectorList: SelectorList,
-  origin: StyleSheetOrigin,
-  style: CSSStyle,
-  media?: CSSMedia[],
+  styleSheetId: CRDP$StyleSheetId,
+  selectorList: CRDP$SelectorList,
+  origin: CRDP$StyleSheetOrigin,
+  style: CRDP$CSSStyle,
+  media?: CRDP$CSSMedia[],
 };
 
 /**
@@ -133,13 +133,13 @@ export type CRDP$CSSRule = {
  * indices in the rule's selectorList.
  */
 export type CRDP$RuleMatch = {
-  rule: CSSRule,
+  rule: CRDP$CSSRule,
   matchingSelectors: number[],
 };
 
 export type CRDP$StyleDeclarationEdit = {
-  styleSheetId: StyleSheetId,
-  range: SourceRange,
+  styleSheetId: CRDP$StyleSheetId,
+  range: CRDP$SourceRange,
   text: string,
 };
 
@@ -153,13 +153,13 @@ export type CRDP$CSSMedia = {
   text: string,
   source: 'mediaRule' | 'importRule' | 'linkedSheet' | 'inlineSheet',
   sourceURL?: string,
-  range?: SourceRange,
-  styleSheetId?: StyleSheetId,
-  mediaList?: MediaQuery[],
+  range?: CRDP$SourceRange,
+  styleSheetId?: CRDP$StyleSheetId,
+  mediaList?: CRDP$MediaQuery[],
 };
 
 export type CRDP$MediaQuery = {
-  expressions: MediaQueryExpression[],
+  expressions: CRDP$MediaQueryExpression[],
   active: boolean,
 };
 
@@ -167,7 +167,7 @@ export type CRDP$MediaQueryExpression = {
   value: number,
   unit: string,
   feature: string,
-  valueRange?: SourceRange,
+  valueRange?: CRDP$SourceRange,
   computedLength?: number,
 };
 
@@ -175,30 +175,30 @@ export type CRDP$MediaQueryExpression = {
  * Result of calling CSS.getMatchedStylesForNode.
  */
 export type CRDP$MatchedStyles = {
-  inlineStyle: CSSStyle,
-  attributesStyle: CSSStyle,
-  matchedCSSRules: RuleMatch[],
-  inherited: InheritedStyleEntry[],
-  pseudoElements: PseudoElementMatches[],
-  cssKeyframesRules: CSSKeyframesRule[],
+  inlineStyle: CRDP$CSSStyle,
+  attributesStyle: CRDP$CSSStyle,
+  matchedCSSRules: CRDP$RuleMatch[],
+  inherited: CRDP$InheritedStyleEntry[],
+  pseudoElements: CRDP$PseudoElementMatches[],
+  cssKeyframesRules: CRDP$CSSKeyframesRule[],
 };
 
 /**
  * Inherited CSS rule collection from ancestor node.
  */
 export type CRDP$InheritedStyleEntry = {
-  inlineStyle?: CSSStyle,
-  matchedCSSRules: RuleMatch[],
+  inlineStyle?: CRDP$CSSStyle,
+  matchedCSSRules: CRDP$RuleMatch[],
 };
 
 export type CRDP$CSSKeyframesRule = {
-  animationName: Value,
-  keyframes: CSSKeyframeRule[],
+  animationName: CRDP$Value,
+  keyframes: CRDP$CSSKeyframeRule[],
 };
 
 export type CRDP$CSSKeyframeRule = {
-  styleSheetId?: StyleSheetId,
-  origin: StyleSheetOrigin,
-  keyText: Value,
-  style: CSSStyle,
+  styleSheetId?: CRDP$StyleSheetId,
+  origin: CRDP$StyleSheetOrigin,
+  keyText: CRDP$Value,
+  style: CRDP$CSSStyle,
 };

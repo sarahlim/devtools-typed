@@ -1,22 +1,22 @@
 // @flow
 
 export type CRDP$Node = {
-  nodeId: NodeId,
+  nodeId: CRDP$NodeId,
   parentId?: number,
-  backendNodeId: NodeId,
+  backendNodeId: CRDP$NodeId,
   nodeType: number,
   nodeName: string,
   localName: string,
   nodeValue: string,
   childNodeCount?: number,
-  children?: Node[],
-  attributes?: AttributeList,
+  children?: CRDP$Node[],
+  attributes?: CRDP$AttributeList,
   name?: string,
   pseudoType?: string,
-  pseudoElements?: Node[],
+  pseudoElements?: CRDP$Node[],
 
   // Added properties
-  offsetParent?: Node,
+  offsetParent?: CRDP$Node,
 };
 
 export type CRDP$NodeId = number | string;
