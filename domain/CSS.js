@@ -202,3 +202,8 @@ export type CRDP$CSSKeyframeRule = {
   keyText: CRDP$Value,
   style: CRDP$CSSStyle,
 };
+
+export type CRDP$CSSComputedStyleProperty = {
+  name: string,
+  value: string,
+};
