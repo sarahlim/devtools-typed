@@ -1,21 +1,6 @@
-// @flow
-
-export type CRDP$PseudoType =
-  | 'first-line'
-  | 'first-letter'
-  | 'before'
-  | 'after'
-  | 'backdrop'
-  | 'selection'
-  | 'first-line-inherited'
-  | 'scrollbar'
-  | 'scrollbar-thumb'
-  | 'scrollbar-button'
-  | 'scrollbar-track'
-  | 'scrollbar-track-piece'
-  | 'scrollbar-corner'
-  | 'resizer'
-  | 'input-list-button';
+// @flow @format
+import type { CRDP$FrameId } from './Page';
+import type { CRDP$BackendNodeId, CRDP$PseudoType } from './DOM';
 
 export type CRDP$PseudoElementMatches = {
   pseudoType: CRDP$PseudoType,
@@ -206,4 +191,20 @@ export type CRDP$CSSKeyframeRule = {
 export type CRDP$CSSComputedStyleProperty = {
   name: string,
   value: string,
+};
+
+export type CRDP$CSSStyleSheetHeader = {
+  styleSheetId: CRDP$StyleSheetId,
+  frameId: CRDP$FrameId,
+  sourceURL: string,
+  sourceMapURL?: string,
+  origin: CRDP$StyleSheetOrigin,
+  title: string,
+  ownerNode?: CRDP$BackendNodeId,
+  disabled: boolean,
+  hasSourceURL?: boolean,
+  isInline: boolean,
+  startLine: number,
+  startColumn: number,
+  length: number,
 };

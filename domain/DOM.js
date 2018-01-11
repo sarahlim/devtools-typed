@@ -1,4 +1,4 @@
-// @flow
+// @flow @format
 
 export type CRDP$Node = {
   nodeId: CRDP$NodeId,
@@ -24,3 +24,20 @@ export type CRDP$NodeId = number | string;
 export type CRDP$AttributeList = string[];
 
 export type CRDP$BackendNodeId = number;
+
+export type CRDP$PseudoType =
+  | 'first-line'
+  | 'first-letter'
+  | 'before'
+  | 'after'
+  | 'backdrop'
+  | 'selection'
+  | 'first-line-inherited'
+  | 'scrollbar'
+  | 'scrollbar-thumb'
+  | 'scrollbar-button'
+  | 'scrollbar-track'
+  | 'scrollbar-track-piece'
+  | 'scrollbar-corner'
+  | 'resizer'
+  | 'input-list-button';
